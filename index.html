@@ -34,7 +34,7 @@
 
 				<!-- Part 1 -->
 				<section data-background="#ffffff">
-					<h1>PART I</h2>
+					<h1>PART I</h1>
 					<h2>Bandits Theory</h2>
 				</section>
 
@@ -50,23 +50,104 @@
 					</ul>
 				</section>
 
-				<section data-markdown>
-					<textarea data-template>
-						## An introduction to Multi-Armed Bandits for Wireless Communications
-						### Francesc Wilhelmi 
-
-						![alt text][UPFlogo]
-
-						[logo]: https://github.com/fwilhelmi/presentation_mabs_wireless_communications/assets/upf_logo.png "Logo UPF"
-						
-						Full presentation available [here](https://github.com/fwilhelmi/presentation_mabs_wireless_communications/blob/master/intro_mabs_wireless_communications.pptx).
-					</textarea>
+				<section data-background="#ffffff">
+					<ul>
+					  <li>MABs are a class of sequential learning framework that allow to address the tradeoff between <b>exploration</b> and <b>exploitation</b> in face of <b>uncertainty</b></li>
+					  <li>Suits problems with unavailable or incomplete information</li>
+					  <li>There’s no need of modeling <b>states</b> or trying to learn them (which entails added complexity)</li>
+					  <li>Many different MABs-based models have been provided for several types of problems</li>
+					</ul>
 				</section>
-				<section>Test 2</section>
 
-				<section>
-				  <img data-src="test/examples/assets/upf_logo.png">
+				<section data-background="#ffffff">
+					<ul>
+					  <li>Baseline:</li>
+						<ul>
+						  <li>Katehakis, M. N., & Veinott Jr, A. F. (1987). The multi-armed bandit problem: decomposition and computation. Mathematics of Operations Research, 12(2), 262-268.</li>
+						  <li>Gittins, J., Glazebrook, K., & Weber, R. (2011). Multi-armed bandit allocation indices. John Wiley & Sons.</li>
+						  <li>Auer, P., Cesa-Bianchi, N., & Fischer, P. (2002). Finite-time analysis of the multiarmed bandit problem. Machine learning, 47(2-3), 235-256.</li>
+						  <li>Auer, P., Cesa-Bianchi, N., Freund, Y., & Schapire, R. E. (1995, October). Gambling in a rigged casino: The adversarial multi-armed bandit problem. In Foundations of Computer Science, 1995. Proceedings., 36th Annual Symposium on (pp. 322-331). IEEE.</li>
+						</ul>
+					  <li>Overviews:</li>
+						<ul>
+						  <li>Bubeck, S., & Cesa-Bianchi, N. (2012). Regret analysis of stochastic and nonstochastic multi-armed bandit problems. Foundations and Trends® in Machine Learning, 5(1), 1-122.</li>
+						  <li>Vermorel, J., & Mohri, M. (2005, October). Multi-armed bandit algorithms and empirical evaluation. In European conference on machine learning (pp. 437-448). Springer, Berlin, Heidelberg.</li>
+					</ul>
 				</section>
+
+				<!-- MABs taxonomy -->
+				<section data-background="#ffffff">
+					<h1>MABs Taxonomy</h1>
+				</section>
+
+				<section data-background="#ffffff">
+					<ul>
+					  <li>Stochastic</li>
+					  <ul>
+					  	<li>The reward is generated according to a specific stochastic process</li>
+					  	<li>Literature: [5]</li>
+					  </ul>
+					  <li>Non-stochastic:</li>
+					  <ul>
+					  	<li>No statistic assumption can be done on the reward generation process</li>
+					  	<li>Literature: [5, 7]</li>
+					  </ul>
+					</ul>
+				</section>
+
+				<section data-background="#ffffff">
+					<ul>
+					  <li>More subtle categorization on reward generating process:</li>
+					  <ul>
+					  	<li><b>Stateful (Markovian):</b> every arm is associated with some finite state space</li>
+					  	<li><b>Stateless:</b> arms do not have specific state</li>
+					  	<li><b>Adversarial:</b> different learners attempt to maximize a given reward function</li>
+					  </ul>
+					  <li>Other types:</li>
+					  <ul>
+					  	<li><b>Contextual:</b> in addition to the reward, some other useful information is provided to the agent</li>
+					  	<li><b>Combinatorial:</b> there is a relationship between arms</li>
+					  	<li><b>Mortal:</b> arms are available for a certain amount of time</li>
+					  	<li>...</li>
+					  </ul>
+					</ul>
+				</section>
+
+				<section data-background="#ffffff">
+					<ul>
+					  <li>Stateful (Markovian)</li>
+					  <ul>
+					  	<li>Rested (frozen/sleeping): the state of a given arm only changes when pulled</li>
+					  	<li>Restless: the state of every arm changes regardless of the player’s action</li>
+					  </ul>
+					  <li>Stateless (Stochastic)</li>
+					  <ul>
+					  	<li>The reward generation process is stochastic (stationary or non-stationary density function), and is independent and identically distributed (IID)</li>
+					  </ul>
+					  <li>Adversarial</li>
+					  <ul>
+					  	<li>Rewards generation cannot be attributed to any stochastic assumption: Oblivious adversaries / Non-oblivious adversaries (min-max strategies)</li>
+					  </ul>
+					</ul>
+				</section>
+
+				<section data-background="#ffffff">
+					<ul>
+					  <li>Contextual bandits [8-9]:in addition to the reward, some other useful information is provided to the agent</li>
+					  <li>Combinatorial bandits [10-11]: there is a relationship between arms</li>
+					  <li>Mortal bandits [12]: arms are available for a certain amount of time</li>
+					  <li>MABs with multiple plays [13-15]: a player can pick several arms simultaneously</li>
+					  <li>Pure exploration [16-17]: gain the most knowledge over t by exploring, in order to maximize the likelihood of picking the best arm in t+1</li>
+					  <li>Dueling bandits [18]: the player chooses a pair of arms in each round and observe only their performances (duel between arms)</li>
+					</ul>
+				</section>
+
+				<!-- Algorithms -->
+				<section data-background="#ffffff">
+					<h1>Well-known Algorithms</h1>
+				</section>
+			
+
 			</div>
 		</div>
 
