@@ -63,15 +63,15 @@
 					<ul>
 					  <li>Baseline:</li>
 						<ul>
-						  <li style="font-size:30px">Katehakis, M. N., & Veinott Jr, A. F. (1987). The multi-armed bandit problem: decomposition and computation. Mathematics of Operations Research, 12(2), 262-268.</li>
-						  <li style="font-size:30px">Gittins, J., Glazebrook, K., & Weber, R. (2011). Multi-armed bandit allocation indices. John Wiley & Sons.</li>
-						  <li style="font-size:30px">Auer, P., Cesa-Bianchi, N., & Fischer, P. (2002). Finite-time analysis of the multiarmed bandit problem. Machine learning, 47(2-3), 235-256.</li>
-						  <li style="font-size:30px">Auer, P., Cesa-Bianchi, N., Freund, Y., & Schapire, R. E. (1995, October). Gambling in a rigged casino: The adversarial multi-armed bandit problem. In Foundations of Computer Science, 1995. Proceedings., 36th Annual Symposium on (pp. 322-331). IEEE.</li>
+						  <li style="font-size:26px">Katehakis, M. N., & Veinott Jr, A. F. (1987). The multi-armed bandit problem: decomposition and computation. Mathematics of Operations Research, 12(2), 262-268.</li>
+						  <li style="font-size:26px">Gittins, J., Glazebrook, K., & Weber, R. (2011). Multi-armed bandit allocation indices. John Wiley & Sons.</li>
+						  <li style="font-size:26px">Auer, P., Cesa-Bianchi, N., & Fischer, P. (2002). Finite-time analysis of the multiarmed bandit problem. Machine learning, 47(2-3), 235-256.</li>
+						  <li style="font-size:26px">Auer, P., Cesa-Bianchi, N., Freund, Y., & Schapire, R. E. (1995, October). Gambling in a rigged casino: The adversarial multi-armed bandit problem. In Foundations of Computer Science, 1995. Proceedings., 36th Annual Symposium on (pp. 322-331). IEEE.</li>
 						</ul>
 					  <li>Overviews:</li>
 						<ul>
-						  <li style="font-size:30px">Bubeck, S., & Cesa-Bianchi, N. (2012). Regret analysis of stochastic and nonstochastic multi-armed bandit problems. Foundations and Trends® in Machine Learning, 5(1), 1-122.</li>
-						  <li style="font-size:30px">Vermorel, J., & Mohri, M. (2005, October). Multi-armed bandit algorithms and empirical evaluation. In European conference on machine learning (pp. 437-448). Springer, Berlin, Heidelberg.</li>
+						  <li style="font-size:26px">Bubeck, S., & Cesa-Bianchi, N. (2012). Regret analysis of stochastic and nonstochastic multi-armed bandit problems. Foundations and Trends® in Machine Learning, 5(1), 1-122.</li>
+						  <li style="font-size:26px">Vermorel, J., & Mohri, M. (2005, October). Multi-armed bandit algorithms and empirical evaluation. In European conference on machine learning (pp. 437-448). Springer, Berlin, Heidelberg.</li>
 					</ul>
 				</section>
 
@@ -146,7 +146,101 @@
 				<section data-background="#ffffff">
 					<h1>Well-known Algorithms</h1>
 				</section>
+
+				<section data-background="#ffffff">
+					<p><b>Greedy learning</b></p>
+					<ul>
+					  <li>&epsilon;-greedy [29]</li>
+					  <ul>
+					  	<li>With probability &epsilon;, choose x<sub>t</sub> ~ Unif(X), </li>
+					  	<li>Otherwise, choose x<sub>t</sub> &isin; argmax<sub>x</sub> f&#770;<sub>t</sub></li>
+					  </ul>
+					  <li>Explores inefficiently</li>
+					  <li>With fixed &epsilon;, the average regret grows linearly</li>
+					  <li>Time-dependent exploration rate favors efficiency: &epsilon;<sub>t</sub> = &epsilon;<sub>0</sub>/t</li>
+					</ul>
+				</section>
 			
+				<section data-background="#ffffff">
+					<p><b>Optimistic learning</b></p>
+						<div style="width: 100%;">
+						   <div style="float:left; width: 50%">
+						   	  <ul>
+							    <li style="font-size:35px">Upper Confidence Bound (UCB) [3, 28]</li>
+								<li style="font-size:35px">Assumes certain distributions for the rewards and picks the optimal arm accordingly</li>
+								<li style="font-size:35px">The action-selection process not only takes the magnitude of the reward into account, but the estimated deviations</li>
+							  </ul>
+						   </div>
+						   <div style="float:right;">
+						   	 <img src="assets/ucb_example.png" width="450" height="250" align="middle">
+						   </div>
+						</div>
+						<div style="clear:both"></div>
+				</section>
+
+				<section data-background="#ffffff">
+					<p><b>Probability Matching learning</b></p>
+					<ul>
+					  <li>Thompson sampling [30]</li>
+				  	  <li>Has been shown to achieve strong performance guarantees, often better than those warranted by UCB [31, 32, 33]</li>
+				  	  <li>It constructs a probabilistic model of the rewards and assumes a prior distribution of the parameters of said model – Then, it chooses the arm matching the probability of being optimal</li>
+				  	  <li>Very popular because it is computationally cheap and offers good results</li>
+					</ul>
+				</section>
+
+				<!-- Single-Agent vs Multi-Agent MABs -->
+				<section data-background="#ffffff">
+					<h1>Single-Agent vs Multi-Agent MABs</h1>
+				</section>
+
+				<section data-background="#ffffff">
+					<ul>
+					  <li>SA-MAB: mainly concerned on sequential online decision making problem in an unknown environment</li>
+				  	  <li>MA-MAB: where Game Theory and MABs meet and complement each other (competition between agents)</li>
+					</ul>
+					<img src="assets/ma_mabs.png" width="450" height="250" align="middle">
+				</section>		
+
+				<section data-background="#ffffff">
+					<p><b>Single-Agent</b></p>
+					<ul>
+					  <li>Baseline: [19, 20]</li>
+				  	  <li>Properties:</li>
+				  	  	<ul>
+						  <li>Stationarity of the environment</li>
+					  	  <li>Pure exploration-exploitation</li>
+					  	  <li>The Regret measurement is completely meaningful in this setting</li>
+						</ul>
+					  <li>State-of-the-Art performance bounds:</li>
+				  	  	<ul>
+						  <li>Lai and Robbins, 1985</li>
+					  	  <li>Anantharam et al., 1987 (multiple plays)</li>
+						</ul>
+					</ul>
+				</section>	
+
+				<section data-background="#ffffff">
+					<p><b>Multi-Agent</b></p>
+					<ul>
+				  	  <li>Properties:</li>
+				  	  	<ul>
+						  <li>Non-stationarity of the environment</li>
+					  	  <li>Nexus with Game Theory</li>
+					  	  <li>Adversarial MABs is a sub-class of the Multi-Agent MAB problem</li>
+						</ul>
+					  <li>Models:</li>
+				  	  	<ul>
+						  <li>Decentralized – Selfish behavior</li>
+					  	  <li>Distributed – Communication among agents</li>
+					  	  <li>Centralized – Correlated Equilibria</li>
+						</ul>
+					</ul>
+				</section>	
+					
+				<!-- Adversarial MABs -->
+				<section data-background="#ffffff">
+					<h1>Adversarial MABs</h1>
+				</section>	
 
 			</div>
 		</div>
