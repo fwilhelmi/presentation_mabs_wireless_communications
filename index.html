@@ -242,6 +242,324 @@
 					<h1>Adversarial MABs</h1>
 				</section>	
 
+				<section data-background="#ffffff">
+					<ul>
+					  <li>Adversarial MABs typically frame to decentralized/distributed problems, where different learners compete for the same resources</li>
+				  	  <li>According to the way rewards are revealed, we find:</li>
+				  	  <ul>
+						  <li>Full information game: the player knows the reward of all the actions</li>
+					  	  <li>Partial information game: the player only knows the reward of the played action</li>
+						</ul>
+					  <li>The notions of Internal and External regret are very important</li>
+					</ul>
+				</section>	
+				
+				<section data-background="#ffffff">
+					<p><b>Nexus with Game Theory</b></p>
+					<ul>
+				  	  <li style="font-size:35px">N-player game whereby player i competes with N-1 opponents</li>
+					  <li style="font-size:35px">The goal is to determine convergence to some kind of equilibrium</li>
+					  <li style="font-size:35px">In two-person zero-sum games, NE can be achieved if both players adopt an external-regret minimizing strategy. However, this does not hold for general N-player games!</li>
+					  <li style="font-size:35px">We need to provide internal-regret minimizing strategies in order to converge to a Correlated Equilibrium (holds for the empirical joint frequencies)</li>
+					</ul>
+				</section>	
+
+				<section data-background="#ffffff">
+					<p><b>Internal and External regret</b></p>
+					<table style="width:100%">
+					  <tr>
+					    <th>Internal Regret</th>
+					    <th>External Regret</th> 
+					  </tr>
+					  <tr>
+					    <td>Compares the loss incurred by changing actions in a pairwise manner</td>
+					    <td>Compares the expected reward of the actual mixed strategy with the best action</td> 
+					  </tr>
+					</table>					
+				</section>
+
+				<section data-background="#ffffff">
+					<p><b>External-regret minimizing Algorithms</b></p>
+					<ul>
+				  	  <li style="font-size:35px">Weighted Average Prediction (WAP)</li>
+				  	  <ul>
+				  	  	<li>Hedge [4], variant of [21] for full information games</li>
+				  	  	<li>EXP3 [2]</li>
+				  	  </ul>
+					  <li style="font-size:35px">Following the Perturbed Leader (FPL) [22], an online learning extension of [23]</li>
+					  <li style="font-size:35px">Implicitly Normalized Forecaster (INF) Algorithm [24, 25]</li>
+					  <li style="font-size:35px">Internal-Regret Minimizing Algorithm [26]</li>
+					</ul>
+				</section>	
+
+				<section data-background="#ffffff">
+					<p><b>Internal-regret minimizing Algorithms</b></p>
+					<ul>
+					  <li style="font-size:35px">External-regret minimizing algorithms have been shown to work only for N = 2 players, thus NE or CE cannot be guaranteed for N ≥ 3</li>
+					  <li style="font-size:35px">However, if every player uses an internal-regret minimizing strategy, “the joint empirical frequencies of plays converge to a correlated equilibrium”</li>
+					  <li style="font-size:35px">The Experimental Regret Testing (ERT) [27] has been shown to exhibit internal-regret minimization</li>
+					</ul>
+				</section>	
+
+				<!-- Part 2 -->
+				<section data-background="#ffffff">
+					<h1>PART II</h1>
+					<h2>Bandits in Wireless Communications</h2>
+				</section>
+
+				<!-- Previous work -->
+				<section data-background="#ffffff">
+					<h1>Previous Work</h1>
+				</section>
+
+				<section data-background="#ffffff">
+					<ul>
+					  <li style="font-size:35px">MP-MABs for Opportunistic Spectrum Access [34-38]</li>
+					  <li style="font-size:35px">Joint Channel Selection and Power Control in Cognitive Radio Networks [39]</li>
+					  <li style="font-size:35px">Distributed inter-cell interference coordination [40]</li>
+					  <li style="font-size:35px">Distributed user association in small cell networks [41]</li>
+					  <li style="font-size:35px">Multi-path routing [42]</li>
+					  <li style="font-size:35px">Dynamic rate and channel selection [43]</li>
+					  <li style="font-size:35px">Unlicensed LTE/WiFi Coexistence [44]</li>
+					</ul>
+				</section>	
+
+				<section data-background="#ffffff">
+					<ul>
+					  <li style="font-size:35px">Cognitive Radio problems have raised attention, due to its decentralized (or distributed) nature</li>
+					  <li style="font-size:35px">Therefore, the MP-MABs setting have been shown to properly fit to Cognitive Radio Networks</li>
+					  <li style="font-size:35px">Several efforts have been done to provide mechanisms whereby multiple users converge to the optimal solution</li>
+					  <ul>
+					  <li style="font-size:35px">Baseline [45]</li>
+					  <li style="font-size:35px">Combinatorial approach [46, 47]</li>
+					  <li style="font-size:35px">TDFS approach [48]</li>
+					  <li style="font-size:35px">User-specific penalties [39]</li>
+					  <li style="font-size:35px">Calibrated Forecasting [37]</li>
+					  </ul>
+					</ul>
+				</section>	
+
+				<!-- Previous considerations -->
+				<section data-background="#ffffff">
+					<h1>Previous considerations</h1>
+				</section>
+
+				<section data-background="#ffffff">
+					<p align="left">Remarkable guarantees (convergence, performance, etc.) are often achieved only if certain assumptions hold:</p>
+					<font size="5">
+					<table style="width:100%">
+					  <tr>
+					    <th>Assumption</th>
+					    <th>Drawbacks</th> 
+					  </tr>
+					  <tr>
+					    <td>All the players use the same strategy</td>
+					    <td>Not feasible in dense and heterogeneous scenarios</td> 
+					  </tr>
+					  <tr>
+					    <td>The number of users is fixed and known</td>
+					    <td>While the former implies that the network remains static, the latter entails communication or additional hardware</td> 
+					  </tr>
+					  <tr>
+					    <td>User-specific penalties are applied</td>
+					    <td>A strong knowledge on the scenario must be known on before-hand</td> 
+					  </tr>
+					  <tr>
+					    <td>The reward generation process is relaxed and only depends on the own actions</td>
+					    <td>Unfeasible in potentially overlapping scenarios, where the outer interference severely affects to the performance of a given WN</td> 
+					  </tr>
+					</table>	
+					</font>				
+				</section>
+
+				<section data-background="#ffffff">
+					<p><b>Reward Distributions</b></p>
+					<ul>
+					  <li style="font-size:35px">Typical action-selection strategies assume well-known distributions (e.g., Gaussian) for the reward, which allows to effectively address the exploration-exploitation trade-off</li>
+					  <li style="font-size:35px">However, reward distributions are hard to model in WNs, especially in adversarial environments</li>
+					  <li style="font-size:35px">Then, performance guarantees cannot be assured</li>
+					  <li style="font-size:35px">Nevertheless, good results have been shown on assuming Gaussian distributions for the Spatial Reuse problem [49, 50]</li>
+					</ul>
+				</section>	
+
+				<!-- Use Case -->
+				<section data-background="#ffffff">
+					<h1>Use Case</h1>
+					<h2>Learning in Adversarial WLANs</h2>
+				</section>
+
+				<section data-background="#ffffff">
+					<div style="width: 100%;">
+					   <div style="float:left; width: 50%">
+					   	  <ul>
+							  <li style="font-size:35px">In practice, the AP may incorporate an agent that performs learning operations according to the information received</li>
+							  <li style="font-size:35px">Extensions of the decentralized case would entail communication  and cooperation between agents</li>
+						  </ul>
+					   </div>
+					   <div style="float:right;">
+					   	 <img src="assets/wlans_agents.png" width="450" height="350" align="middle">
+					   </div>
+					</div>
+					<div style="clear:both"></div>
+				</section>
+
+				<section data-background="#ffffff">
+					<img src="assets/learning_procedure.png" align="middle">
+				</section>
+
+				<section data-background="#ffffff">
+					<p><b>MABs formulation</b></p>
+					<ul>
+					  <li style="font-size:30px">Let there be 𝒩={1, …, 𝑁} the set of potentially overlapping WLANs</li>
+					  <li style="font-size:30px">Each WLAN can choose from a range of actions 𝒜={1, …, 𝐾}, which refer to certain configurations (e.g., transmit power)</li>
+					  <li style="font-size:30px">Initially, the estimate reward of each action available in any WLAN, k∈{1, …, 𝐾}, is set to 0</li>
+					  <li style="font-size:30px">At every iteration, each WLAN selects an arm randomly according its action selection-strategy</li>
+					  <li style="font-size:30px">After choosing an action k at iteration t, each WLAN observes the reward generated by the environment, r<sub>k,t</sub>, which is based on the experienced throughput that depends on 1) its own action and 2) the actions made by the overlapping WLANs </li>
+					  <li style="font-size:30px">The new information is used for updating the knowledge on the available arms</li>
+					</ul>
+				</section>	
+
+				<section data-background="#ffffff">
+					<p><b>Reward Generation</b></p>
+					<ul>
+					  <li style="font-size:35px">The reward is generated after a WLAN (or a set of WLANs) makes an action</li>
+					  <li style="font-size:35px">It may be “selfish” or “collaborative”, according to the performance measure considered</li>
+					  <li style="font-size:35px">The reward quantifies the performance experienced by the WLAN, so it may refer to:</li>
+					  <ul>
+					    <li style="font-size:30px">Throughput</li>
+					    <li style="font-size:30px">Packets sent</li>
+					    <li style="font-size:30px">Delay</li>
+					    <li style="font-size:30px">...</li>
+					  </ul>
+					</ul>
+				</section>	
+
+				<section data-background="#ffffff">
+					<p><b>Reward Normalization</b></p>
+					<ul>
+					  <li style="font-size:35px">It is very important to normalize the obtained reward (which may be of great magnitude), in order to let the algorithms operate properly</li>
+					  <li style="font-size:35px">However, normalization is done according to the optimal performance, which may be unknown and unfeasible to be derived</li>
+					  <li style="font-size:35px">Thus, reasonable upper bounds can be provided for normalization</li>
+					  <ul>
+					    <li style="font-size:30px">Maximum achievable data rate</li>
+					    <li style="font-size:30px">Theoretical capacity</li>
+					    <li style="font-size:30px">...</li>
+					  </ul>
+					</ul>
+				</section>	
+
+				<!-- Some Conclusions -->
+				<section data-background="#ffffff">
+					<h1>Some Conclusions</h1>
+				</section>
+
+				<section data-background="#ffffff">
+					<ul>
+				  	  <li style="font-size:35px">The learning process in wireless networks can be really slow</li>
+				  	  <ul>
+				  	  	<li style="font-size:30px">We need to question ourselves: is it worth?</li>
+				  	  </ul>
+					  <li style="font-size:35px">Convergence guarantees may not exist, neither logarithmic regret decreasing</li>
+					  <li style="font-size:35px">Decentralized settings are, in practice, unfeasible </li>
+					  <li style="font-size:35px">However, performance maximization can be provided</li>
+					  <li style="font-size:35px">Feasibility of applying learning in wireless networks</li>
+					  <ul>
+				  	  	<li style="font-size:30px">Distributed (message exchanging)</li>
+				  	  	<li style="font-size:30px">Centralized system (correlated equilibrium)</li>
+				  	  </ul>
+					</ul>
+				</section>	
+
+				<!-- References -->
+				<section data-background="#ffffff">
+					<h1>References</h1>
+				</section>
+
+				<section data-background="#ffffff">
+				<p align="left" style="font-size:20px">
+					[1] Katehakis, M. N., & Veinott Jr, A. F. (1987). The multi-armed bandit problem: decomposition and computation. Mathematics of Operations Research, 12(2), 262-268.<br>
+					[2] Gittins, J., Glazebrook, K., & Weber, R. (2011). Multi-armed bandit allocation indices. John Wiley & Sons.<br>
+					[3] Auer, P., Cesa-Bianchi, N., & Fischer, P. (2002). Finite-time analysis of the multiarmed bandit problem. Machine learning, 47(2-3), 235-256.<br>
+					[4] Auer, P., Cesa-Bianchi, N., Freund, Y., & Schapire, R. E. (1995, October). Gambling in a rigged casino: The adversarial multi-armed bandit problem. In Foundations of Computer Science, 1995. Proceedings., 36th Annual Symposium on (pp. 322-331). IEEE.<br>
+					[5] Bubeck, S., & Cesa-Bianchi, N. (2012). Regret analysis of stochastic and nonstochastic multi-armed bandit problems. Foundations and Trends® in Machine Learning, 5(1), 1-122.<br>
+					[6] Vermorel, J., & Mohri, M. (2005, October). Multi-armed bandit algorithms and empirical evaluation. In European conference on machine learning (pp. 437-448). Springer, Berlin, Heidelberg.<br>
+					[7] Auer, Peter, et al. "The nonstochastic multiarmed bandit problem." SIAM journal on computing 32.1 (2002): 48-77.<br>
+					[8] Slivkins, A. (2014). Contextual bandits with similarity information. Journal of Machine Learning Research, 15(1), 2533-2568.
+				</p>
+				</section>
+
+				<section data-background="#ffffff">
+				<p align="left" style="font-size:20px">
+					[9] Agrawal, S., & Goyal, N. (2013, February). Thompson sampling for contextual bandits with linear payoffs. In International Conference on Machine Learning (pp. 127-135).<br>
+					[10] Cesa-Bianchi, N., & Lugosi, G. (2012). Combinatorial bandits. Journal of Computer and System Sciences, 78(5), 1404-1422.<br>
+					[11] Chen, W., Wang, Y., & Yuan, Y. (2013, February). Combinatorial multi-armed bandit: General framework and applications. In International Conference on Machine Learning (pp. 151-159).<br>
+					[12] Chakrabarti, D., Kumar, R., Radlinski, F., & Upfal, E. (2009). Mortal multi-armed bandits. In Advances in neural information processing systems (pp. 273-280).<br>
+					[13] Anantharam, V., Varaiya, P., & Walrand, J. (1987). Asymptotically efficient allocation rules for the multiarmed bandit problem with multiple plays-Part I: IID rewards. IEEE Transactions on Automatic Control, 32(11), 968-976.<br>
+					[14] Anantharam, V., Varaiya, P., & Walrand, J. (1987). Asymptotically efficient allocation rules for the multiarmed bandit problem with multiple plays-Part II: Markovian rewards. IEEE Transactions on Automatic Control, 32(11), 977-982.<br>
+					[15] Komiyama, J., Honda, J., & Nakagawa, H. (2015). Optimal regret analysis of thompson sampling in stochastic multi-armed bandit problem with multiple plays. arXiv preprint arXiv:1506.00779.
+				</p>
+				</section>
+
+				<section data-background="#ffffff">
+				<p align="left" style="font-size:20px">
+					[16] Bubeck, S., Munos, R., & Stoltz, G. (2011). Pure exploration in finitely-armed and continuous-armed bandits. Theoretical Computer Science, 412(19), 1832-1852.<br>
+					[17] Chen, S., Lin, T., King, I., Lyu, M. R., & Chen, W. (2014). Combinatorial pure exploration of multi-armed bandits. In Advances in Neural Information Processing Systems (pp. 379-387).<br>
+					[18] Yue, Y., Broder, J., Kleinberg, R., & Joachims, T. (2012). The k-armed dueling bandits problem. Journal of Computer and System Sciences, 78(5), 1538-1556.<br>
+					[19] Robbins, H. (1985). Some aspects of the sequential design of experiments. In Herbert Robbins Selected Papers (pp. 169-177). Springer, New York, NY.<br>
+					[20] Thompson, W. R. (1933). On the likelihood that one unknown probability exceeds another in view of the evidence of two samples. Biometrika, 25(3/4), 285-294.<br>
+					[21] Littlestone, N., & Warmuth, M. K. (1994). The weighted majority algorithm. Information and computation, 108(2), 212-261.<br>
+					[22] Kujala, J., & Elomaa, T. (2007, October). Following the perturbed leader to gamble at multi-armed bandits. In International Conference on Algorithmic Learning Theory (pp. 166-180). Springer, Berlin, Heidelberg.<br>
+					[23] Hannan, J. (1957). Approximation to Bayes risk in repeated play. Contributions to the Theory of Games, 3, 97-139.
+				</p>
+				</section>
+
+				<section data-background="#ffffff">
+				<p align="left" style="font-size:20px">
+					[24] Audibert, J. Y., & Bubeck, S. (2009, June). Minimax policies for adversarial and stochastic bandits. In COLT (pp. 217-226).<br>
+					[25] Audibert, J. Y., & Bubeck, S. (2010). Regret bounds and minimax policies under partial monitoring. Journal of Machine Learning Research, 11(Oct), 2785-2836.<br>
+					[26] Stoltz, G., & Lugosi, G. (2005). Internal regret in on-line portfolio selection. Machine Learning, 59(1-2), 125-159.<br>
+					[27] Cesa-Bianchi, N., & Lugosi, G. (2006). Prediction, learning, and games. Cambridge university press.<br>
+					[28] Agrawal, R. (1995). Sample mean based index policies by o (log n) regret for the multi-armed bandit problem. Advances in Applied Probability, 27(4), 1054-1078.<br>
+					[29] Sutton, R. S., & Barto, A. G. (1998). Reinforcement learning: An introduction (Vol. 1, No. 1). Cambridge: MIT press.<br>
+					[30] William R Thompson. On the likelihood that one unknown probability exceeds another in view of the evidence of two samples. Biometrika, 25(3/4):285–294, 1933.<br>
+					[31] Shipra Agrawal and Navin Goyal. Analysis of thompson sampling for the multi-armed bandit problem. In Conference on Learning Theory, pages 39–1, 2012.
+				</p>
+				</section>
+
+				<section data-background="#ffffff">
+				<p align="left" style="font-size:20px">
+					[32] Emilie Kaufmann, Nathaniel Korda, and R´emi Munos. Thompson sampling: An asymptotically optimal finite time analysis. In Algorithmic Learning Theory, pages 199–213. Springer, 2012.<br>
+					[33] Nathaniel Korda, Emilie Kaufmann, and Remi Munos. Thompson sampling for 1- dimensional exponential family bandits. In C. J. C. Burges, L. Bottou, M. Welling, Z. Ghahramani, and K. Q. Weinberger, editors, Advances in Neural Information Processing Systems 26, pages 1448–1456. Curran Associates, Inc., 2013. <br>
+					[34]  Keqin Liu and Qing Zhao. Distributed learning in multi-armed bandit with multiple players. IEEE Transactions on Signal Processing, 58(11):5667–5681, 2010. <br>
+					[35]  Animashree Anandkumar, Nithin Michael, Ao Kevin Tang, and Ananthram Swami. Distributed algorithms for learning and cognitive medium access with logarithmic regret. IEEE Journal on Selected Areas in Communications, 29(4):731–745, 2011. <br>
+					[36]  Jonathan Rosenski, Ohad Shamir, and Liran Szlak. Multi-player bandits–a musical chairs approach. In International Conference on Machine Learning, pages 155–163, 2016. <br>
+					[37] Setareh Maghsudi and Slawomir Stanczak. Channel selection for network-assisted D2D communication via no-regret bandit learning with calibrated forecasting. IEEE Transactions on Wireless Communications, 14(3):1309–1322, 2015. 
+				</p>
+				</section>
+
+				<section data-background="#ffffff">
+				<p align="left" style="font-size:20px">
+					[38] Di Felice, M., Chowdhury, K. R., & Bononi, L. (2011, December). Learning with the bandit: A cooperative spectrum selection scheme for cognitive radio networks. In Global Telecommunications Conference (GLOBECOM 2011), 2011 IEEE (pp. 1-6). IEEE.<br>
+					[39] Setareh Maghsudi and Slawomir Stanczak. Joint channel selection and power control in infrastructureless wireless networks: A multiplayer multiarmed bandit framework. IEEE Transactions on Vehicular Technology, 64(10):4565–4578, 2015. <br>
+					[40] Coucheney, P., Khawam, K., & Cohen, J. (2015, June). Multi-Armed Bandit for distributed Inter-Cell Interference Coordination. In ICC (pp. 3323-3328).<br>
+					[41] Maghsudi, S., & Hossain, E. (2017). Distributed user association in energy harvesting dense small cell networks: A mean-field multi-armed bandit approach. IEEE Access, 5, 3513-3523.<br>
+					[42] Henri, S., Vlachou, C., & Thiran, P. (2018) Multi-armed Bandit in Action: Optimizing Performance in Dynamic Hybrid Networks.<br>
+					[43] Combes, R., & Proutiere, A. (2015). Dynamic rate and channel selection in cognitive radio systems. IEEE Journal on Selected Areas in Communications, 33(5), 910-921.<br>
+					[44] Cano, C., & Neu, G. (2018). Wireless Optimisation via Convex Bandits: Unlicensed LTE/WiFi Coexistence. arXiv preprint arXiv:1802.04327.
+				</p>
+				</section>
+
+				<section data-background="#ffffff">
+				<p align="left" style="font-size:20px">
+					[45] Anandkumar, A., Michael, N., Tang, A. K., & Swami, A. (2011). Distributed algorithms for learning and cognitive medium access with logarithmic regret. IEEE Journal on Selected Areas in Communications, 29(4), 731-745.<br>
+					[46] Gai, Y., Krishnamachari, B., & Jain, R. (2010, April). Learning multiuser channel allocations in cognitive radio networks: A combinatorial multi-armed bandit formulation. In New Frontiers in Dynamic Spectrum, 2010 IEEE Symposium on (pp. 1-9). IEEE.<br>
+					[47] Gai, Y., Krishnamachari, B., & Jain, R. (2012). Combinatorial network optimization with unknown variables: Multi-armed bandits with linear rewards and individual observations. IEEE/ACM Transactions on Networking (TON), 20(5), 1466-1478.<br>
+					[48] Liu, K., & Zhao, Q. (2010). Distributed learning in multi-armed bandit with multiple players. IEEE Transactions on Signal Processing, 58(11), 5667-5681.<br>
+					[49] Wilhelmi, F., Cano, C., Neu, G., Bellalta, B., Jonsson, A., & Barrachina-Muñoz, S. (2017). Collaborative Spatial Reuse in Wireless Networks via Selfish Multi-Armed Bandits. arXiv preprint arXiv:1710.11403.<br>
+					[50] Wilhelmi, F., Barrachina-Muñoz, S., Cano, C., Bellalta, B., Jonsson, A., & Neu, G. (2018). Potential and Pitfalls of Multi-Armed Bandits for Decentralized Spatial Reuse in WLANs. arXiv preprint arXiv:1805.11083.
+				</p>
+				</section>
+
 			</div>
 		</div>
 
